@@ -1,7 +1,8 @@
 # 取出無線介面 
 wifi="ip a |grep 'w' | cut -d ':' -f2" 
 
-cat >> interface_test.sh << "eof"
+# 將設定寫入 /etc/network/interface
+cat >> /etc/network/interface << "eof"
 auto $wifi 
 allow-hotplug $wifi 
 iface $wifi inet manual
